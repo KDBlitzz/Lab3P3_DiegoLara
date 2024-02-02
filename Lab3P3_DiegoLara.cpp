@@ -1,20 +1,73 @@
-// Lab3P3_DiegoLara.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
 
+void ejercicio_1() {
+	int numero = 0;
+	int longitud = 0;
+	cout << "Ingrese el size del arreglo: " << endl;
+	cin >> longitud;
+	while (longitud < 5) {
+		cout << "Favor ingresar un numero mayor a 5" << endl; cin >> longitud;
+	}
+	int* arreglo = new int[longitud];
+	cout << "Ingrese los numeros del arreglo: " << endl;
+	for (int i = 0; i < longitud; i++)
+	{
+		cin >> numero;
+		while (numero < 1 || numero > 15) {
+			cout << "Favor ingrese el numero entre 1 y 15" << endl; cin >> numero;
+		}
+		arreglo[i] = numero;
+	}
+	cout << "Arreglo antes: ";
+	cout << "[";
+	for (int i = 0; i < longitud; i++)
+	{
+		if (i != longitud - 1)
+		{
+			cout << arreglo[i] << ",";
+		}
+		else {
+			cout << arreglo[i];
+		}
+	}
+	cout << "]" << endl;
+	for (int i = 0; i < longitud; i++)
+	{
+		if (arreglo[i] == 7)
+		{
+
+		}
+	}
+	delete[] arreglo;
+}
+void ejercicio_2() {
+
+}
+void menu() {
+	int option = 0;
+	bool menu = true;
+	while (menu) {
+		cout << "Ejercicio Práctico 1 – El número menos óptimo" << endl;
+		cout << "Ejercicio práctico 2 – El número perdido" << endl;
+		cout << "3. Salir" << endl;
+		cin >> option;
+		switch (option) {
+		case 1:
+			ejercicio_1();
+			break;
+		case 2:
+			ejercicio_2();
+			break;
+		case 3:
+			menu = false;
+			break;
+		default:
+			cout << "Opcion Invalida";
+		}
+	}
+}
 int main()
 {
-    std::cout << "Hello World!\n";
+	menu();
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
