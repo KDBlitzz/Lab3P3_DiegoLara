@@ -1,6 +1,15 @@
 #include <iostream>
 using namespace std;
 #include <locale>
+int generarNumRandom(int minimo, int maximo) { // metodo para generar numeros al azar de 1 a 20
+	int random;
+	random = 0;
+	random = minimo + (rand() % maximo);
+	return random;
+}
+void ordenadoAscendentemente() {
+
+}
 void ejercicio_1() {
 	int numero = 0;
 	int longitud = 0;
@@ -73,6 +82,28 @@ void ejercicio_1() {
 	delete[] arregloVacio;
 }
 void ejercicio_2() {
+	int longitud = 0;
+	int numeroObjetivo = 0;
+	cout << "Ingrese el size del arreglo: "; cin >> longitud;
+	int* arreglo = new int[longitud];
+	for (int i = 0; i < longitud; i++)
+	{
+		arreglo[i] = generarNumRandom(1, 20);
+	}
+	cout << "Arreglo random generado: ";
+	cout << "[";
+	for (int i = 0; i < longitud; i++)
+	{
+		if (i != longitud - 1)
+		{
+			cout << arreglo[i] << ",";
+		}
+		else {
+			cout << arreglo[i];
+		}
+	}
+	cout << "]" << endl;
+	cout << "Ingrese el número objetivo: " << endl; cin >> numeroObjetivo;
 
 }
 void menu() {
