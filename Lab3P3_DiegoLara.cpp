@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+#include <locale>
 void ejercicio_1() {
 	int numero = 0;
 	int longitud = 0;
@@ -10,6 +10,7 @@ void ejercicio_1() {
 		cout << "Favor ingresar un numero mayor a 5" << endl; cin >> longitud;
 	}
 	int* arreglo = new int[longitud];
+	int* arregloVacio = new int[longitud];
 	cout << "Ingrese los numeros del arreglo: " << endl;
 	for (int i = 0; i < longitud; i++)
 	{
@@ -32,14 +33,44 @@ void ejercicio_1() {
 		}
 	}
 	cout << "]" << endl;
+	int comprobar = 0;
+	int contador = 0;
 	for (int i = 0; i < longitud; i++)
 	{
-		if (arreglo[i] == 7)
+		if (arreglo[i] != 7)
 		{
-
+			arregloVacio[contador] = arreglo[i];
+			contador++;
+		}
+		else {
+			comprobar = 1;
 		}
 	}
+	for (int i = contador; i < longitud; i++)
+	{
+		arregloVacio[i] = 7;
+	}
+	if (comprobar == 0)
+	{
+		cout << "Vale más que no está el 7, ¡porque no es óptimo!" << endl;
+	}
+	else {
+		cout << "Arreglo después: ";
+		cout << "[";
+		for (int i = 0; i < longitud; i++)
+		{
+			if (i != longitud - 1)
+			{
+				cout << arregloVacio[i] << ",";
+			}
+			else {
+				cout << arregloVacio[i];
+			}
+		}
+		cout << "]" << endl;
+	}
 	delete[] arreglo;
+	delete[] arregloVacio;
 }
 void ejercicio_2() {
 
@@ -69,5 +100,6 @@ void menu() {
 }
 int main()
 {
+	setlocale(LC_ALL, "spanish");
 	menu();
 }
